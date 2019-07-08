@@ -13,8 +13,3 @@ Libraries and technologies used in the project:
 
 TODO:
 ----
--
-
-Database:
-----
--
