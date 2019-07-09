@@ -1,4 +1,6 @@
+@extends('layouts.frontend')
 
+@section('content')
 <div class="container places">
     <h1 class="text-center">Room in <a href="{{ route('object') }}">X</a> object</h1>
 
@@ -67,5 +69,4 @@
     </section>
 
 </div>
-
-
+@endsection

@@ -1,4 +1,6 @@
+@extends('layouts.frontend')
 
+@section('content')
 <div class="container">
 
     <h1>Article <small>about: <a href="{{ route('object') }}">X</a> object</small></h1>
@@ -14,7 +16,6 @@
             <ul class="list-inline">
                 <?php for ($i = 1; $i <= 10; $i++): ?>
                     <li><a href="{{ route('person') }}"><img title="John Doe" class="media-object img-responsive" width="50" height="50" src="http://lorempixel.com/50/50/people/?x=<?= mt_rand(1, 9999999) ?>" alt="..."> </a></li>
-
                 <?php endfor; ?>
             </ul>
 
@@ -72,4 +73,5 @@
 
 
 </div>
+@endsection
 

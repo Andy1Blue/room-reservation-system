@@ -1,4 +1,6 @@
+@extends('layouts.frontend')
 
+@section('content')
 <div class="container-fluid places">
 
     <h1 class="text-center">Available rooms</h1>
@@ -29,3 +31,4 @@
     <?php endfor; ?>
 
 </div>
+@endsection
