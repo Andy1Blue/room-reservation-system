@@ -13,3 +13,4 @@ Libraries and technologies used in the project:
 
 TODO:
 ----
+- Implementation VUE.JS
