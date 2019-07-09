@@ -40,7 +40,7 @@ THE SOFTWARE.-->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         
 
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -106,7 +106,9 @@ THE SOFTWARE.-->
 
                     </div>-->
 
-                    <?php include 'backend/' . $view . '.blade.php'; ?>
+                    @yield('content')
+
+                    {{-- <?php include 'backend/' . $view . '.blade.php'; ?> --}}
                 </div>
             </div>
         </div>
