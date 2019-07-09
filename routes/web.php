@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
+
+Route::get('/object', 'FrontendController@Object')->name('object');
+Route::get('/adminHome', 'FrontendController@adminHome')->name('adminHome');
+Route::get('/roomSearch', 'FrontendController@roomSearch')->name('roomSearch');
