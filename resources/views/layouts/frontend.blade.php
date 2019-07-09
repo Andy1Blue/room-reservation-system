@@ -106,8 +106,6 @@ THE SOFTWARE.-->
 
         @yield('content')
 
-        {{-- <?php include 'frontend/' . $view . '.blade.php'; ?> --}}
-
         <div class="container-fluid">
 
             <div class="row mobile-apps">

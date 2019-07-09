@@ -108,7 +108,7 @@ THE SOFTWARE.-->
 
                     @yield('content')
 
-                    {{-- <?php include 'backend/' . $view . '.blade.php'; ?> --}}
+                    
                 </div>
             </div>
         </div>
