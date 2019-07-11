@@ -70,7 +70,7 @@ THE SOFTWARE.-->
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Enjoy the trip!</h1>
+                <h1>Room Reservation System</h1>
                 <p>A platform for tourists and owners of tourist facilities. Find the original place for the holidays!</p>
                 <p>Place your home on the site and let yourself be found by many tourists!</p>
                 <form action="{{ route('roomSearch') }}" class="form-inline">
