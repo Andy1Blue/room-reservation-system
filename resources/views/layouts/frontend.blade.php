@@ -1,24 +1,8 @@
-<!--The MIT License (MIT)
-
-Copyright (c) 2017 www.netprogs.pl
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.-->
+<!--
+|--------------------------------------------------------------------------
+| resources/views/layouts/frontend.blade.php *** Copyright netprogs.pl | avaiable only at Udemy.com | further distribution is prohibited  ***
+|--------------------------------------------------------------------------
+-->
 <!DOCTYPE html>
 <html lang="pl">
     <head>
@@ -26,7 +10,7 @@ THE SOFTWARE.-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Room Reservation System</title>
+        <title>Enjoy the trip!</title>
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://bootswatch.com/3/readable/bootstrap.min.css" crossorigin="anonymous">
@@ -38,7 +22,7 @@ THE SOFTWARE.-->
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Lecture 5 -->
     </head>
     <body>
 
@@ -54,16 +38,32 @@ THE SOFTWARE.-->
                     <a class="navbar-brand" href="./">Home</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
+                    @auth <!-- Lecture 7 -->
                     <ul class="nav navbar-nav">
                         <li><p class="navbar-text">Logged in as:</p></li>
-                        <li><p class="navbar-text">Robert</p></li>
+                        <li><p class="navbar-text">{{ Auth::user()->name }}</p></li> <!-- Lecture 7 Auth -->
                         <li><a href="{{ route('adminHome') }}">admin</a></li>
-                        <li><a href="#contact">logout</a></li>
+                        
+                        <!-- Lecture 7 -->
+                        <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                        </li>
+
                     </ul>
+                    @endauth <!-- Lecture 7 -->
+                    @guest <!-- Lecture 7 -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="#">Sign up</a></li>
+                        <li><a href="{{ route('login') }}">Sign in</a></li> <!-- Lecture 7 route -->
+                        <li><a href="{{ route('register') }}">Sign up</a></li> <!-- Lecture 7 route -->
                     </ul>
+                    @endguest <!-- Lecture 7 -->
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
@@ -98,24 +98,28 @@ THE SOFTWARE.-->
                         </select>
                     </div>
                     <button type="submit" class="btn btn-warning">Search</button>
-                    <input type="hidden" name="view" value="roomsearch">
+                    
+                    <!-- Lecture 6: deleted <input type="hidden" name="view" value="roomsearch"> -->
+                       
                 </form>
 
             </div>
         </div>
 
-        @yield('content')
+        @yield('content') <!-- Lecture 5  -->
 
         <div class="container-fluid">
 
             <div class="row mobile-apps">
 
                 <div class="col-md-6 col-xs-12">
+                    <!-- Lecture 5 img src tag -->
                     <img src="{{ asset('images/mobile-app.png') }}" alt="" class="img-responsive center-block">
                 </div>
 
                 <div class="col-md-6 col-xs-12">
                     <h1 class="text-center">Download mobile app.</h1>
+                    <!-- Lecture 5 img src tags -->
                     <a href="#"><img class="img-responsive center-block" src="{{ asset('images/google.png') }}" alt=""></a><br><br>
                     <a href="#"><img class="img-responsive center-block" src="{{ asset('images/apple.png') }}" alt=""></a><br><br>
                     <a href="#"><img class="img-responsive center-block" src="{{ asset('images/windows.png') }}" alt=""></a>
@@ -128,7 +132,7 @@ THE SOFTWARE.-->
 
             <footer>
 
-                <p class="text-center">&copy; 2019 Room Reservation System</p>
+                <p class="text-center">&copy; 2017 Enjoy the trip!, Inc.</p>
 
             </footer>
 
@@ -139,6 +143,6 @@ THE SOFTWARE.-->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script> <!-- Lecture 5 -->
     </body>
 </html>
