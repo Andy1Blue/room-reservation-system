@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('object_id')->unsigned();
             $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade');
-            $table->dataTime('created_at');
+            $table->dateTime('created_at');
         });
     }
 
