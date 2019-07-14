@@ -17,9 +17,10 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->integer('room_number');
             $table->integer('room_size');
+            $table->integer('price');
             $table->text('description');
-            $table->integer('obejct_id')->unsigned();
-            $table->foreign('obejct_id')->references('id')->on('objects')->onDelete('cascade');
+            $table->integer('object_id')->unsigned();
+            $table->foreign('object_id')->references('id')->on('objects')->onDelete('cascade');
         });
     }
 
