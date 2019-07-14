@@ -7,16 +7,6 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
      * Bootstrap any application services.
      *
      * @return void
@@ -24,5 +14,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind(\App\Roomreservationsystem\Interfaces\FrontendRepositoryInterface::class,function()
+        {
+            return new \App\Roomreservationsystem\Repositories\FrontendRepository;
+        });
     }
 }
